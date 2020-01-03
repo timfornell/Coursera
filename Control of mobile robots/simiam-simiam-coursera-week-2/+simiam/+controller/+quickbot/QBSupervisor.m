@@ -56,7 +56,7 @@ classdef QBSupervisor < simiam.controller.Supervisor
                                
             obj.prev_ticks = struct('left', 0, 'right', 0);
             
-            obj.theta_d     = 0; %pi/4;
+            obj.theta_d     = pi/4;
             obj.v           = 0.1;
             
             obj.p = []; %simiam.util.Plotter();
@@ -177,7 +177,7 @@ classdef QBSupervisor < simiam.controller.Supervisor
             Dc = (right_wheel_dist + left_wheel_dist) / 2;
             x_dt = Dc * cos(theta);
             y_dt = Dc * sin(theta);
-            theta_dt = (right_wheel_dist + left_wheel_dist) / L;
+            theta_dt = (right_wheel_dist - left_wheel_dist) / L;
             
             %% END CODE BLOCK %%
             
